@@ -13,7 +13,9 @@ import { formatError } from './utils/http.js';
 const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.use(cors());
+app.use(cors({
+  origin: "https://expense-tracker-production-8137.up.railway.app/"
+}));
 app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
 
