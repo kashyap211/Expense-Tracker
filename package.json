@@ -4,12 +4,15 @@
   "description": "Full-stack Expense Manager with MongoDB",
   "type": "module",
   "main": "server.js",
-  
+
   "scripts": {
     "start": "node server.js",
     "dev": "clear && nodemon server.js",
     "build": "npm install"
   },
+  "engines": {
+  "node": "18.x"
+},
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.6",
