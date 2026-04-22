@@ -14,8 +14,11 @@ const app = express();
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(cors({
-  origin: "https://expense-tracker-production-8137.up.railway.app/"
+  origin: ["http://localhost:3000", "https://expense-tracker-production-8137.up.railway.app/"],
+  credentials: true
 }));
+
+
 app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
 
@@ -30,10 +33,13 @@ app.use('/api', (req, res) => {
   });
 });
 
-app.get('*', (req, res) => res.sendFile(join(__dirname, 'public', 'index.html')));
+app.use((req, res, next) => {
+  if (req.path.startsWith('/api/')) return next();
+  res.sendFile(join(__dirname, 'public', 'index.html'));
+});
 
 app.use((err, req, res, next) => {
-  if (res.headersSent) {
+  if (res.headersSent) { 
     return next(err);
   }
 

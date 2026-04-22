@@ -4,9 +4,10 @@
   "description": "Full-stack Expense Manager with MongoDB",
   "type": "module",
   "main": "server.js",
+  
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "dev": "clear && nodemon server.js",
     "build": "npm install"
   },
   "dependencies": {
