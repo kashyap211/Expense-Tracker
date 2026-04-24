@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "clear && nodemon server.js",
-    "build": "npm install"
+    "build": "echo 'No build step required'"
   },
   "engines": {
   "node": "18.x"
